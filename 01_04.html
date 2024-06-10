@@ -21,6 +21,7 @@
         margin: 1em;
         transform: rotateY(0deg);
         transition: 1s;
+        -ms-transform-style: preserve-3d;
         transform-style: preserve-3d;
         /* transform-origin: left; */
       }
@@ -29,17 +30,19 @@
         align-items: center;
         justify-content: center;
         position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
+        left: 50%;
+        top: 50%;
+        width: 100px;
+        height: 150px;
+        margin: -75px 0 0 -50px;
         border-radius: 0.5em;
         font-size: 1.5rem;
         -webkit-backface-visibility: hidden;
-        -moz-backface-visibility: hidden;
-        -ms-backface-visibility: hidden;
-        -o-backface-visibility: hidden;
+        /* -moz-backface-visibility: hidden; */
+        /* -ms-backface-visibility: hidden; */
+        /* -o-backface-visibility: hidden; */
         backface-visibility: hidden;
+        transition: 1s;
       }
       .card-side-front {
         z-index: 1;
@@ -49,17 +52,18 @@
         background: red;
         transform: rotateY(180deg);
       }
-      .world:hover .card {
+      .world:hover .card-side-front {
         transform: rotateY(180deg);
+      }
+      .world:hover .card-side-back {
+        transform: rotateY(360deg);
       }
     </style>
   </head>
   <body>
     <div class="world">
-      <div class="card">
-        <div class="card-side card-side-front">F</div>
-        <div class="card-side card-side-back">B</div>
-      </div>
+      <div class="card-side card-side-front">F</div>
+      <div class="card-side card-side-back">B</div>
     </div>
   </body>
 </html>
